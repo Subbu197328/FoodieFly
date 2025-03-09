@@ -8,7 +8,7 @@ mongoDB();
 
 // Fix CORS issue by allowing requests from frontend (http://localhost:5173)
 app.use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "http://localhost:5173"); // Changed from 3000 to 5173
+    res.setHeader("Access-Control-Allow-Origin", "https://foodiefly.onrender.com "); // Changed from 3000 to 5173
     res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS"); // Allow HTTP methods
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
