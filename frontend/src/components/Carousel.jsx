@@ -23,6 +23,7 @@ export default function Carousel() {
             <img src="biriyani.jfif" class="d-block w-100" style={{ filter: "brightness(30%)" }} alt="..." />
           </div>
         </div>
+        
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>

@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 const mongoDB = require("./db");
 
 // Connect to MongoDB
@@ -17,6 +17,7 @@ app.use((req, res, next) => {
 app.use(express.json());
 app.use('/api', require("./Routes/CreateUser"));
 app.use('/api', require("./Routes/DisplayData"));
+app.use('/api', require("./Routes/OrderData"));
 
 
 // Root route

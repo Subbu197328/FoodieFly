@@ -29,33 +29,33 @@ export default function Home() {
     <div>
       <div><Navbar /></div>
       <div> 
-        <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel" style={{objectFit:"contain !important"}}>
+        <div id="carouselExampleFade" className="carousel slide carousel-fade" data-bs-ride="carousel" style={{objectFit:"contain"}}>
 
-          <div class="carousel-inner" id='carousel'>
-            <div class="carousel-caption" style={{ zIndex: "10" }}>
-              <div class="d-flex justify-content-center">
-                <input class="div-control me-2" type="search" placeholder="Search" aria-label="Search" value={search} onChange={(e)=>{setSearch(e.target.value)}}/>
+          <div className="carousel-inner" id='carousel'>
+            <div className="carousel-caption" style={{ zIndex: "10" }}>
+              <div className="d-flex justify-content-center">
+                <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" value={search} onChange={(e)=>{setSearch(e.target.value)}}/>
               </div>
             </div>
 
-            <div class="carousel-item active">
-              <img src="burger.jfif" class="d-block w-100" style={{ filter: "brightness(30%)" }} alt="..." />
+            <div className="carousel-item active">
+              <img src="burger.jfif" className="d-block w-100" style={{ filter: "brightness(30%)" }} alt="..." />
             </div>
-            <div class="carousel-item">
-              <img src="pastry.jfif" class="d-block w-100" style={{ filter: "brightness(30%)" }} alt="..." />
+            <div className="carousel-item">
+              <img src="pastry.jfif" className="d-block w-100" style={{ filter: "brightness(30%)" }} alt="..." />
             </div>
-            <div class="carousel-item">
-              <img src="biriyani.jfif" class="d-block w-100" style={{ filter: "brightness(30%)" }} alt="..." />
+            <div className="carousel-item">
+              <img src="biriyani.jfif" className="d-block w-100" style={{ filter: "brightness(30%)" }} alt="..." />
             </div>
           </div>
 
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
+          <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span className="visually-hidden">Previous</span>
           </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
+          <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+            <span className="carousel-control-next-icon" aria-hidden="true"></span>
+            <span className="visually-hidden">Next</span>
           </button>
         </div>
       </div>
@@ -63,8 +63,8 @@ export default function Home() {
       <div className='container'>
         {
           foodCat !== [] ? (
-            foodCat.map((data) => (
-              <div className='row mb-3'>
+            foodCat.map((data, index) => (
+              <div key={index} className='row mb-3'>
                 <div className="fs-3 m-3">
                   {data.CategoryName}
                 </div>
@@ -72,15 +72,14 @@ export default function Home() {
                 {foodItem !== [] ? (
                   foodItem.filter((item) => 
                     (item.CategoryName === data.CategoryName) &&
-                    (item.name.toLowerCase() !== "mix veg pizza") && // Exclude Mix Veg Pizza
-                    (item.name.toLowerCase().includes(search.toLocaleLowerCase()))
+                    (item.name.toLowerCase() !== "mix veg pizza") && 
+                    (item.name.toLowerCase().includes(search.toLowerCase()))
                   )
                   .map((filterItems) => (
                     <div key={filterItems._id} className="col-12 col-md-6 col-lg-3">
                       <Card 
-                        foodName={filterItems.name}
+                        foodItem = {filterItems}
                         options={filterItems.options[0]}
-                        imgSrc={filterItems.img}
                       />
                     </div>
                   ))
