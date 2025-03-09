@@ -18,7 +18,7 @@ export default function Cart() {
     const userEmail = localStorage.getItem("userEmail");
 
     try {
-      const response = await fetch("http://localhost:5000/api/orderData", {
+      const response = await fetch("https://foodiefly.onrender.com/api/orderData", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
